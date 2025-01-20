@@ -328,17 +328,23 @@ img {
   gap: 1.5rem;
 }
 
-.work__img {
+.work__img, .work__video {
   box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
   border-radius: 0.5rem;
   overflow: hidden;
 }
-.work__img img {
+
+.work__img img, .work__video video {
   transition: 1s;
+  width: 100%; /* Ensure the video/image fits the container */
+  height: 100%; /* Force the video to fill the container vertically */
+  object-fit: cover; /* Ensures that the video scales correctly while maintaining aspect ratio */
 }
-.work__img img:hover {
-  transform: scale(1.1);
+
+.work__img img:hover, .work__video video:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
 }
+
 
 /* ===== CONTACT =====*/
 .contact__input {
