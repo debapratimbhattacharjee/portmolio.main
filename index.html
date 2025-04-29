@@ -18,7 +18,7 @@
                 <div>
                     <a href="#" class="nav__logo">Debapratim Bhattacharjee</a>
                 </div>
-
+        
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
@@ -27,17 +27,44 @@
                         <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
                         <li class="nav__item">
                             <a href="mailto:debagourbhatta@gmail.com" class="nav__link">Contact</a>
-                          </li>
-                          
-                          
-                          
+                        </li>
                         <li class="nav__item"><a href="https://www.instagram.com/mr_bhattacharjee__?igsh=Zm55aTR5NjlmYW52&utm_source=qr" target="_blank" class="nav__link">Instagram</a></li>
                         <li class="nav__item"><a href="https://www.facebook.com/share/1BDCChA3dh/?mibextid=wwXIfr" target="_blank" class="nav__link">Facebook</a></li>
+                        
+                        <!-- Mobile Dark Mode Toggle -->
+                        <li class="nav__item nav__theme-toggle-mobile">
+                            <label class="theme-switch">
+                                <input type="checkbox" id="theme-toggle-mobile">
+                                <span class="theme-slider round">
+                                    <svg class="theme-icon sun" viewBox="0 0 24 24">
+                                        <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM18.364 7.05l1.414 1.414 2.121-2.121-1.414-1.414zM1 11h3v2H1zm19 0h3v2h-3z"/>
+                                    </svg>
+                                    <svg class="theme-icon moon" viewBox="0 0 24 24">
+                                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+                                    </svg>
+                                </span>
+                            </label>
+                        </li>
                     </ul>
                 </div>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
+        
+                <div class="nav__actions">
+                    <!-- Desktop Dark Mode Toggle -->
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="theme-slider round">
+                            <svg class="theme-icon sun" viewBox="0 0 24 24">
+                                <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM18.364 7.05l1.414 1.414 2.121-2.121-1.414-1.414zM1 11h3v2H1zm19 0h3v2h-3z"/>
+                            </svg>
+                            <svg class="theme-icon moon" viewBox="0 0 24 24">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+                            </svg>
+                        </span>
+                    </label>
+        
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class='bx bx-menu'></i>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -136,8 +163,9 @@
                         </div>
                     </div>
                     
-                    <div>              
-                        <img src="assets/img/work3.jpg" alt="" class="skills__img">
+                    <div>
+                        <a href="https://saathpay-project-debapratimbhattacharjees-projects.vercel.app//" class="work__img" target="_blank">              
+                        <img src="assets/img/worksaath.png" alt="" class="skills__img">
                     </div>
                 </div>
             </section>
@@ -150,17 +178,26 @@
                 <div class="work__category">
                     <h3 class="work__subcategory-title">Web & Technical Projects</h3>
                     <div class="work__container bd-grid">
+
+                        <a href="https://promomitra.vercel.app/" class="work__img">
+                            <img src="assets/img/work3.jpg" alt="Project 3">
+                        </a>
+                        <a href="https://product-coled.vercel.app/" class="work__img">
+                            <img src="assets/img/workcoled.jpg" alt="Project 3">
+                        </a>
                         <a href="https://saath-pay-new-yqu3.vercel.app/" class="work__img" target="_blank">
                             <img src="assets/img/work1.jpg" alt="SaathPay">
                         </a>
+                        <a href="https://saathpay-project-debapratimbhattacharjees-projects.vercel.app//" class="work__img" target="_blank">
+                            <img src="assets/img/workdashboard.png" alt="Uber Clone">
+                        </a>
+                        
                         
                         <a href="https://uber-clone-beta-six.vercel.app/" class="work__img" target="_blank">
                             <img src="assets/img/work2.jpg" alt="Uber Clone">
                         </a>
                         
-                        <a href="" class="work__img">
-                            <img src="assets/img/work3.jpg" alt="Project 3">
-                        </a>
+                       
                     </div>
                 </div>
             
@@ -252,6 +289,24 @@
             </div>
             <p class="footer__copy">&#169; Bedimcode. All rigths reserved</p>
         </footer>
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
+
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
+
 
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>

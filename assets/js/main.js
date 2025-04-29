@@ -1,5 +1,5 @@
 /*===== MENU SHOW =====*/ 
-const showMenu = (toggleId, navId) =>{
+const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
 
@@ -24,10 +24,10 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
-const scrollActive = () =>{
+const scrollActive = () => {
     const scrollDown = window.scrollY
 
-  sections.forEach(current =>{
+    sections.forEach(current => {
         const sectionHeight = current.offsetHeight,
               sectionTop = current.offsetTop - 58,
               sectionId = current.getAttribute('id'),
@@ -35,7 +35,7 @@ const scrollActive = () =>{
         
         if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
             sectionsClass.classList.add('active-link')
-        }else{
+        } else {
             sectionsClass.classList.remove('active-link')
         }                                                    
     })
@@ -48,10 +48,49 @@ const sr = ScrollReveal({
     distance: '60px',
     duration: 2000,
     delay: 200,
-//     reset: true
+    // reset: true
 });
 
 sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+
+/*===== DARK/LIGHT THEME TOGGLE =====*/
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    const savedTheme = localStorage.getItem('theme');
+
+    // Always set dark mode by default if no preference is saved
+    if (!savedTheme || savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        if (themeToggle) themeToggle.checked = true;
+        if (themeToggleMobile) themeToggleMobile.checked = true;
+    }
+
+    function setTheme(isDark) {
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('change', function() {
+            setTheme(this.checked);
+            if (themeToggleMobile) themeToggleMobile.checked = this.checked;
+        });
+    }
+
+    if (themeToggleMobile) {
+        themeToggleMobile.addEventListener('change', function() {
+            setTheme(this.checked);
+            if (themeToggle) themeToggle.checked = this.checked;
+        });
+    }
+});
