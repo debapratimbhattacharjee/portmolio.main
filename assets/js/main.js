@@ -296,3 +296,91 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+/*==============================================================
+    VIDEO DOUBLE CLICK / DOUBLE TAP FULLSCREEN
+==============================================================*/
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const videos = document.querySelectorAll('.video-item video');
+
+    videos.forEach(video => {
+
+        /* ---------- DESKTOP DOUBLE CLICK ---------- */
+
+        video.addEventListener('dblclick', function (event) {
+
+            // Don't trigger fullscreen when clicking video controls
+            if (event.target !== video) return;
+
+            openVideoFullscreen(video);
+
+        });
+
+
+        /* ---------- MOBILE DOUBLE TAP ---------- */
+
+        let lastTap = 0;
+
+        video.addEventListener('touchend', function (event) {
+
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+
+            if (tapLength < 350 && tapLength > 0) {
+
+                event.preventDefault();
+
+                openVideoFullscreen(video);
+
+            }
+
+            lastTap = currentTime;
+
+        });
+
+    });
+
+
+    /* ---------- FULLSCREEN FUNCTION ---------- */
+
+    function openVideoFullscreen(video) {
+
+        // Pause other videos
+        document.querySelectorAll('.video-item video').forEach(otherVideo => {
+
+            if (otherVideo !== video) {
+                otherVideo.pause();
+            }
+
+        });
+
+
+        // Keep video playing when fullscreen opens
+        video.play().catch(() => {});
+
+
+        /* Modern browsers */
+        if (video.requestFullscreen) {
+
+            video.requestFullscreen();
+
+        }
+
+        /* Safari / iPhone */
+        else if (video.webkitEnterFullscreen) {
+
+            video.webkitEnterFullscreen();
+
+        }
+
+        /* Older browsers */
+        else if (video.webkitRequestFullscreen) {
+
+            video.webkitRequestFullscreen();
+
+        }
+
+    }
+
+});
